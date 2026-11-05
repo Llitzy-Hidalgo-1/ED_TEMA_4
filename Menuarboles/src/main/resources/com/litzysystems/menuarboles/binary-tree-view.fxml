@@ -1,0 +1,85 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefWidth="850.0" prefHeight="600.0"
+            style="-fx-background-color: #FFF7ED;"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.litzysystems.menuarboles.controller.BinaryTreeController">
+
+    <top>
+        <VBox spacing="8" style="-fx-background-color: #C2410C;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="ÁRBOL BINARIO"
+                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <Label text="Inserta valores y observa cómo se organiza el árbol"
+                   style="-fx-font-size: 14px; -fx-text-fill: #FFEDD5;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="18" right="20" bottom="12" left="20"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="inputField"
+                           promptText="Ingresa un número entero"
+                           prefWidth="250"
+                           onAction="#insertNode"/>
+
+                <Button text="INSERTAR"
+                        onAction="#insertNode"
+                        style="-fx-background-color: #EA580C; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="LIMPIAR"
+                        onAction="#clearTree"
+                        style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="MENÚ"
+                        onAction="#backToMenu"
+                        style="-fx-background-color: #334155; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <Label text="Visualización del árbol"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #9A3412;"/>
+
+            <ScrollPane fitToWidth="true" fitToHeight="true"
+                        prefHeight="320"
+                        style="-fx-background-color: white;">
+                <content>
+                    <Pane fx:id="treePane"
+                          minWidth="760"
+                          minHeight="300"
+                          style="-fx-background-color: white;"/>
+                </content>
+            </ScrollPane>
+
+            <Label text="Valores del árbol"
+                   style="-fx-font-weight: bold; -fx-text-fill: #9A3412;"/>
+
+            <TextArea fx:id="outputArea"
+                      editable="false"
+                      wrapText="true"
+                      prefRowCount="3"
+                      promptText="Aquí aparecerán los valores insertados..."/>
+        </VBox>
+    </center>
+
+</BorderPane>

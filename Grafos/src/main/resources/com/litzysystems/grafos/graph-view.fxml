@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.litzysystems.grafos.controller.GraphController"
+            prefHeight="800"
+            prefWidth="1100"
+            style="-fx-background-color: #F1F5F9;">
+
+    <top>
+        <VBox alignment="CENTER"
+              spacing="8"
+              prefHeight="115"
+              style="-fx-background-color: linear-gradient(to right, #1D4ED8, #7C3AED);">
+
+            <Label text="GRAPH DATA STRUCTURES"
+                   textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="28"/>
+                </font>
+            </Label>
+
+            <Label text="Creacion y visualizacion de grafos"
+                   textFill="#E0E7FF"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12" alignment="CENTER">
+            <padding>
+                <Insets top="15" right="25" bottom="15" left="25"/>
+            </padding>
+
+            <Label text="AGREGAR DATOS" textFill="#172554">
+                <font>
+                    <Font name="System Bold" size="20"/>
+                </font>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="10">
+                <TextField fx:id="vertexField"
+                           promptText="Nombre del vertice"
+                           prefWidth="250"/>
+
+                <Button text="AGREGAR VERTICE"
+                        onAction="#handleAddVertex"
+                        style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <Label text="CONECTAR VERTICES" textFill="#172554">
+                <font>
+                    <Font name="System Bold" size="15"/>
+                </font>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="10">
+                <TextField fx:id="firstVertexField"
+                           promptText="Primer vertice"
+                           prefWidth="180"/>
+
+                <Label text="CONECTAR CON" textFill="#475569"/>
+
+                <TextField fx:id="secondVertexField"
+                           promptText="Segundo vertice"
+                           prefWidth="180"/>
+
+                <Button text="AGREGAR ARISTA"
+                        onAction="#handleAddEdge"
+                        style="-fx-background-color: #0891B2; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <Label text="RECORRIDOS DEL GRAFO" textFill="#172554">
+                <font>
+                    <Font name="System Bold" size="16"/>
+                </font>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="10">
+                <TextField fx:id="startField"
+                           promptText="Vertice inicial"
+                           prefWidth="180"/>
+
+                <Button text="BFS - AMPLITUD"
+                        onAction="#handleBFS"
+                        style="-fx-background-color: #059669; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="DFS - PROFUNDIDAD"
+                        onAction="#handleDFS"
+                        style="-fx-background-color: #9333EA; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <Label text="VISUALIZACION DEL GRAFO"
+                   textFill="#172554">
+                <font>
+                    <Font name="System Bold" size="18"/>
+                </font>
+            </Label>
+
+            <Pane fx:id="graphPane"
+                  prefWidth="950"
+                  prefHeight="310"
+                  minHeight="310"
+                  maxHeight="310"
+                  style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #CBD5E1; -fx-border-radius: 15;"/>
+
+            <Label fx:id="verticesLabel"
+                   text="Vertices registrados: 0"
+                   textFill="#475569"/>
+
+            <Label fx:id="resultLabel"
+                   text="Ingresa vertices para comenzar."
+                   wrapText="true"
+                   textFill="#172554">
+                <font>
+                    <Font name="System Bold" size="15"/>
+                </font>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="15">
+                <Button text="LIMPIAR"
+                        onAction="#handleClear"
+                        prefWidth="150"
+                        prefHeight="40"
+                        style="-fx-background-color: #0891B2; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="SALIR"
+                        onAction="#handleExit"
+                        prefWidth="150"
+                        prefHeight="40"
+                        style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

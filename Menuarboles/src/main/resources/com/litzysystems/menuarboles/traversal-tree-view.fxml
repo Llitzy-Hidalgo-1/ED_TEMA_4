@@ -1,0 +1,110 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefWidth="850.0" prefHeight="600.0"
+            style="-fx-background-color: #FFFBEB;"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.litzysystems.menuarboles.controller.TraversalTreeController">
+
+    <top>
+        <VBox spacing="8" style="-fx-background-color: #B45309;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="RECORRIDOS DE ÁRBOLES"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <Label text="Preorden, inorden y postorden"
+                   style="-fx-font-size: 14px; -fx-text-fill: #FEF3C7;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="18" right="20" bottom="12" left="20"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="inputField"
+                           promptText="Ingresa un número"
+                           prefWidth="200"
+                           onAction="#insertNode"/>
+
+                <Button text="INSERTAR"
+                        onAction="#insertNode"
+                        style="-fx-background-color: #D97706; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="EJEMPLO"
+                        onAction="#loadExample"
+                        style="-fx-background-color: #0891B2; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="LIMPIAR"
+                        onAction="#clearTree"
+                        style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="MENÚ"
+                        onAction="#backToMenu"
+                        style="-fx-background-color: #334155; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <Label fx:id="statusLabel"
+                   text="Inserta números para comenzar."
+                   style="-fx-font-size: 13px; -fx-text-fill: #92400E;"/>
+
+            <Label text="Árbol de los recorridos"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #92400E;"/>
+
+            <ScrollPane fx:id="graphScroll"
+                        fitToWidth="true"
+                        fitToHeight="true"
+                        prefHeight="280"
+                        style="-fx-background-color: white;">
+                <content>
+                    <Pane fx:id="treePane"
+                          minWidth="760"
+                          minHeight="280"
+                          style="-fx-background-color: white;"/>
+                </content>
+            </ScrollPane>
+
+            <HBox spacing="8">
+                <Button text="PREORDEN"
+                        onAction="#showPreorder"
+                        style="-fx-background-color: #7C3AED; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="INORDEN"
+                        onAction="#showInorder"
+                        style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="POSTORDEN"
+                        onAction="#showPostorder"
+                        style="-fx-background-color: #059669; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="MOSTRAR TODOS"
+
+                        style="-fx-background-color: #B45309; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <TextArea fx:id="outputArea"
+                      editable="false"
+                      wrapText="true"
+                      prefRowCount="3"
+                      promptText="Los recorridos aparecerán aquí..."/>
+        </VBox>
+    </center>
+
+</BorderPane>
